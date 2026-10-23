@@ -1,0 +1,250 @@
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #172033;
+  background: #f3f6fb;
+}
+
+body {
+  margin: 0;
+}
+
+header {
+  background: linear-gradient(120deg, #142b50, #2859a5);
+  color: white;
+  text-align: center;
+  padding: 32px 16px;
+}
+
+header h1 {
+  margin: 0 0 10px;
+  font-size: clamp(25px, 4vw, 36px);
+}
+
+header p {
+  margin: 0;
+  color: #dce8ff;
+}
+
+main {
+  max-width: 1150px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+.panel {
+  background: white;
+  border: 1px solid #e0e6ef;
+  border-radius: 12px;
+  padding: 22px;
+  margin-bottom: 20px;
+  box-shadow: 0 3px 12px #1a31500b;
+}
+
+h2 {
+  margin: 0 0 18px;
+  font-size: 21px;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+input, select {
+  width: 100%;
+  min-width: 0;
+  padding: 11px;
+  border: 1px solid #cbd5e1;
+  border-radius: 7px;
+  background: white;
+  color: #172033;
+  font: inherit;
+}
+
+input:focus, select:focus {
+  outline: 2px solid #8bb8ff;
+  border-color: #326ad1;
+}
+
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 650px;
+}
+
+th, td {
+  text-align: left;
+  padding: 12px 10px;
+  border-bottom: 1px solid #e8edf4;
+  white-space: nowrap;
+}
+
+th {
+  color: #40516c;
+  background: #f7f9fc;
+  font-size: 13px;
+}
+
+td input {
+  min-width: 75px;
+  padding: 9px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+button {
+  cursor: pointer;
+  border: 0;
+  border-radius: 7px;
+  padding: 11px 16px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+.primary {
+  color: white;
+  background: #245bc2;
+}
+
+.primary:hover {
+  background: #19489d;
+}
+
+.secondary {
+  color: #244777;
+  background: #eaf1fc;
+}
+
+.delete {
+  color: #a32929;
+  background: #fdeaea;
+}
+
+.hint {
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+#status {
+  color: #a32929;
+  overflow-wrap: anywhere;
+}
+
+.recommendation {
+  border-left: 4px solid #326ad1;
+  padding: 14px 16px;
+  background: #f4f7fd;
+  border-radius: 5px;
+  line-height: 1.7;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.metric {
+  background: #f6f8fc;
+  padding: 18px;
+  border-radius: 9px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.metric span {
+  color: #64748b;
+  font-size: 13px;
+}
+
+.metric strong {
+  font-size: 25px;
+  color: #204f9f;
+}
+
+.gantt {
+  display: flex;
+  align-items: stretch;
+  gap: 5px;
+  overflow-x: auto;
+  padding: 16px 4px;
+  min-height: 95px;
+}
+
+.gantt-block {
+  flex: 0 0 auto;
+  min-width: 65px;
+  padding: 13px 10px;
+  border-radius: 6px;
+  background: #dce9ff;
+  color: #173b77;
+  text-align: center;
+  border: 1px solid #b9d0fa;
+}
+
+.gantt-block.idle {
+  background: #eef0f4;
+  color: #606979;
+  border-color: #d7dbe2;
+}
+
+.gantt-block b, .gantt-block small {
+  display: block;
+}
+
+.gantt-block small {
+  margin-top: 8px;
+}
+
+footer {
+  text-align: center;
+  padding: 22px 12px;
+  color: #64748b;
+  font-size: 13px;
+}
+
+@media (max-width: 650px) {
+  .controls, .metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .panel {
+    padding: 15px;
+  }
+
+  header {
+    padding: 26px 14px;
+  }
+}

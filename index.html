@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CPU Scheduling Decision Simulator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>CPU Scheduling Simulator</h1>
+    <p>Analyze processes, choose an algorithm, and compare performance.</p>
+  </header>
+
+  <main>
+    <section class="panel">
+      <h2>Process Configuration</h2>
+      <div class="controls">
+        <label>
+          Scheduling algorithm
+          <select id="algorithm">
+            <option value="AUTO">Recommend automatically</option>
+            <option value="FCFS">FCFS</option>
+            <option value="SJF">SJF (Non-preemptive)</option>
+            <option value="SRTF">SRTF (Preemptive SJF)</option>
+            <option value="PRIORITY">Priority (Non-preemptive)</option>
+            <option value="RR">Round Robin</option>
+          </select>
+        </label>
+
+        <label>
+          Time quantum (Round Robin)
+          <input id="quantum" type="number" min="1" value="2">
+        </label>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Process ID</th>
+              <th>Arrival Time</th>
+              <th>Burst Time</th>
+              <th>Priority</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="processRows"></tbody>
+        </table>
+      </div>
+
+      <div class="actions">
+        <button id="addProcess" class="secondary">+ Add Process</button>
+        <button id="sample" class="secondary">Load Example</button>
+        <button id="run" class="primary">Run Simulation</button>
+      </div>
+      <p class="hint">Lower priority numbers mean higher priority. All times must be non-negative integers; burst times must be positive.</p>
+      <p id="status" role="status"></p>
+    </section>
+
+    <section class="panel">
+      <h2>Algorithm Recommendation</h2>
+      <div id="recommendation" class="recommendation">
+        Run a simulation to receive a recommendation.
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Performance Summary</h2>
+      <div class="metrics">
+        <div class="metric">
+          <span>Average Waiting Time</span>
+          <strong id="avgWaiting">—</strong>
+        </div>
+        <div class="metric">
+          <span>Average Turnaround Time</span>
+          <strong id="avgTurnaround">—</strong>
+        </div>
+        <div class="metric">
+          <span>CPU Utilization</span>
+          <strong id="utilization">—</strong>
+        </div>
+      </div>
+      <p id="algorithmUsed"></p>
+    </section>
+
+    <section class="panel">
+      <h2>Gantt Chart</h2>
+      <div id="gantt" class="gantt">
+        Run the simulation to display execution order.
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Process Results</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>PID</th>
+              <th>Arrival</th>
+              <th>Burst</th>
+              <th>Priority</th>
+              <th>Completion</th>
+              <th>Turnaround</th>
+              <th>Waiting</th>
+              <th>Response</th>
+            </tr>
+          </thead>
+          <tbody id="results"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer>CPU Scheduling Algorithm Decision Simulator · HTML, CSS and C++</footer>
+  <script src="app.js"></script>
+</body>
+</html>
